@@ -1,29 +1,31 @@
 package com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.modal;
 
 import jakarta.persistence.*;
-import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 @Entity
-@Table(name = "hotels")
+@Table(name = "roomType")
 @Getter
 @Setter
-public class hotel extends BaseEntity{
+public class room  extends  BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "hotel_id",nullable = false)
+    private hotel hotel;
 
     @Column(nullable = false)
-    private String city;
+    private String roomType;
+
+    @Column(nullable = false,precision = 10,scale = 2)
+    private BigDecimal price;
 
     @Column(columnDefinition = "TEXT")
     private String[] photos;
@@ -32,10 +34,8 @@ public class hotel extends BaseEntity{
     private String[] amenities;
 
     @Column(nullable = false)
-    private Boolean active;
+    private Integer totalCount;
 
-    @Embedded
-    private hotelContactInfo hotelContactInfo;
-
-
+    @Column(nullable = false)
+    private Integer capacity;
 }
