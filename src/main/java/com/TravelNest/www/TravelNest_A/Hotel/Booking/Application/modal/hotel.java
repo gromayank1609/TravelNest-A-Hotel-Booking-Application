@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Table(name = "hotels")
 @Getter
 @Setter
-public class hotel {
+public class hotel extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,12 +29,6 @@ public class hotel {
 
     @Column(columnDefinition = "TEXT")
     private String[] amenities;
-
-    @CreationTimestamp
-    private LocalDate createdAt;
-
-    @UpdateTimestamp
-    private LocalDate updatedAt;
 
     @Embedded
     private hotelContactInfo hotelContactInfo;
