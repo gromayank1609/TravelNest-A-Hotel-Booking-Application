@@ -43,8 +43,8 @@ public class inventory extends BaseEntity {
     @Column(nullable = false,precision = 5,scale = 2)
     private BigDecimal surgeFactor;
 
-    @Column(nullable = false,,precision = 10,scale = 2)
-    private BigDecimal price;
+    @Column(nullable = false,precision = 10,scale = 2)
+    private BigDecimal price;  //base price * surge factor
 
     @Column(nullable = false)
     private String city;

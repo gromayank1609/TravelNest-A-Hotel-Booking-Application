@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "hotels")
@@ -36,6 +37,9 @@ public class hotel extends BaseEntity{
 
     @Embedded
     private hotelContactInfo hotelContactInfo;
+
+    @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY)
+    List<room> rooms;
 
 
 }
