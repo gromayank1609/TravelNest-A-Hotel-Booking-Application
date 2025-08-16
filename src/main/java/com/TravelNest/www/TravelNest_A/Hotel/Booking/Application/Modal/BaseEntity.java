@@ -1,4 +1,4 @@
-package com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.modal;
+package com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.Modal;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;

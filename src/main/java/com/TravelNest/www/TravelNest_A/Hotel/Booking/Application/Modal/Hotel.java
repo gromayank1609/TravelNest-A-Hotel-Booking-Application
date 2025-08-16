@@ -1,20 +1,16 @@
-package com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.modal;
+package com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.Modal;
 
 import jakarta.persistence.*;
-import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "hotels")
 @Getter
 @Setter
-public class hotel extends BaseEntity{
+public class Hotel extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,10 +32,10 @@ public class hotel extends BaseEntity{
     private Boolean active;
 
     @Embedded
-    private hotelContactInfo hotelContactInfo;
+    private HotelContactInfo hotelContactInfo;
 
     @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY)
-    List<room> rooms;
+    List<Room> rooms;
 
 
 }

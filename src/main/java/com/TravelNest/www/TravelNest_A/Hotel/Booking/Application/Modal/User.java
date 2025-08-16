@@ -1,7 +1,7 @@
-package com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.modal;
+package com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.Modal;
 
 
-import com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.modal.enums.Role;
+import com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.Modal.Enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

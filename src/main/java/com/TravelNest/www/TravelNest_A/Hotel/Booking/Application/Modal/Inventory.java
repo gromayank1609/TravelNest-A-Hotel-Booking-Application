@@ -1,4 +1,4 @@
-package com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.modal;
+package com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.Modal;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,7 +17,7 @@ import java.time.LocalDate;
 })
 @Getter
 @Setter
-public class inventory extends BaseEntity {
+public class Inventory extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,11 +25,11 @@ public class inventory extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "hotel_id",nullable = false)
-    private  hotel hotel;
+    private Hotel hotel;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "room_id",nullable = false)
-    private room room;
+    private Room room;
 
     @Column(nullable = false)
     private LocalDate date;
