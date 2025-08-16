@@ -1,10 +1,13 @@
 package com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.Modal;
 
+import com.TravelNest.www.TravelNest_A.Hotel.Booking.Application.Modal.Enums.BookingStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table()
@@ -36,4 +39,20 @@ public class Booking extends BaseEntity{
 
     @Column(nullable = false)
     private LocalDate checkOutDate;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "payment_id")
+    private Payment payment;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private BookingStatus bookingStatus;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "booking_guest",
+            joinColumns = @JoinColumn(name = "booking_id"),
+            inverseJoinColumns = @JoinColumn(name = "guest_id")
+    )
+    private List<Guest> guests;
 }
